@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Wishlist Editor 🎀</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="admin-container">
+
+        <!-- HEADER -->
+
+        <h1>
+            🎀 Wishlist Editor
+        </h1>
+
+        <p class="admin-subtitle">
+            Add something you'd love for your birthday ♡
+        </p>
+
+
+        <!-- PRODUCT FORM -->
+
+        <form id="product-form">
+
+
+            <!-- ================================= -->
+            <!-- PRODUCT INFORMATION -->
+            <!-- ================================= -->
+
+            <h2>
+                Product Information
+            </h2>
+
+
+            <!-- PRODUCT NAME -->
+
+            <label for="product-name">
+                Product name
+            </label>
+
+            <input
+                type="text"
+                id="product-name"
+                placeholder="e.g. Black Oversized Shirt"
+                required
+            >
+
+
+            <!-- BRAND -->
+
+            <label for="product-brand">
+                Brand
+            </label>
+
+            <input
+                type="text"
+                id="product-brand"
+                placeholder="e.g. Zara"
+                required
+            >
+
+
+            <!-- CATEGORY -->
+
+            <label for="product-category">
+                Category
+            </label>
+
+            <select id="product-category">
+
+                <option value="clothing">
+                    👗 Clothing
+                </option>
+
+                <option value="footwear">
+                    👟 Footwear
+                </option>
+
+                <option value="accessories">
+                    ⌚ Accessories
+                </option>
+
+                <option value="craft">
+                    🎨 Craft / Others
+                </option>
+
+            </select>
+
+
+            <!-- SIZE -->
+
+            <label for="product-size">
+                Size
+            </label>
+
+            <input
+                type="text"
+                id="product-size"
+                placeholder="e.g. M / UK 6 / Free Size"
+            >
+
+
+            <!-- COLOUR -->
+
+            <label for="product-color">
+                Colour
+            </label>
+
+            <input
+                type="text"
+                id="product-color"
+                placeholder="e.g. Black"
+            >
+
+
+            <!-- ================================= -->
+            <!-- PRODUCT IMAGE -->
+            <!-- ================================= -->
+
+            <label for="product-image">
+                📸 Product Image
+            </label>
+
+            <input
+                type="file"
+                id="product-image"
+                accept="image/*"
+            >
+
+            <p class="image-help">
+                Take a screenshot of the product and upload it here ♡
+            </p>
+
+
+            <!-- IMAGE PREVIEW -->
+
+            <div
+                id="image-preview-container"
+                class="image-preview-container"
+            >
+
+                <img
+                    id="image-preview"
+                    src=""
+                    alt="Product preview"
+                >
+
+            </div>
+
+
+            <!-- PRIORITY -->
+
+            <label for="product-priority">
+                Priority
+            </label>
+
+            <select
+                id="product-priority"
+            >
+
+                <option value="high">
+                    ⭐ High — I really want this
+                </option>
+
+                <option value="medium">
+                    💗 Medium — Would love this
+                </option>
+
+                <option value="low">
+                    🌸 Low — Nice to have
+                </option>
+
+            </select>
+
+
+            <!-- NOTES -->
+
+            <label for="product-notes">
+                Notes
+            </label>
+
+            <textarea
+                id="product-notes"
+                placeholder="Anything specific? e.g. Exact colour only, oversized fit preferred..."
+                rows="4"
+            ></textarea>
+
+
+
+            <!-- ================================= -->
+            <!-- STORES -->
+            <!-- ================================= -->
+
+            <h2>
+                🛍️ Where can I buy it?
+            </h2>
+
+            <p class="store-help">
+                Add every website where this product is available.
+            </p>
+
+
+            <!-- STORE LIST -->
+
+            <div id="stores-container">
+
+
+                <!-- STORE 1 -->
+
+                <div class="store-entry">
+
+                    <h3>
+                        Store 1
+                    </h3>
+
+
+                    <label>
+                        Store name
+                    </label>
+
+                    <input
+                        type="text"
+                        class="store-name"
+                        placeholder="e.g. Myntra"
+                        required
+                    >
+
+
+                    <label>
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        class="store-price"
+                        placeholder="e.g. 999"
+                        min="0"
+                        required
+                    >
+
+
+                    <label>
+                        Product link
+                    </label>
+
+                    <input
+                        type="url"
+                        class="store-link"
+                        placeholder="Paste product link"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ADD STORE -->
+
+            <button
+                type="button"
+                id="add-store-button"
+                class="secondary-button"
+            >
+                ➕ Add another store
+            </button>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="admin-add-button"
+            >
+                🎀 Add to Wishlist
+            </button>
+
+
+        </form>
+
+
+        <!-- ================================= -->
+        <!-- CURRENT WISHLIST -->
+        <!-- ================================= -->
+
+        <section class="admin-wishlist">
+
+            <h2>
+                🎀 My Current Wishlist
+            </h2>
+
+            <p class="store-help">
+                Manage the things you've already added.
+            </p>
+
+
+            <div id="admin-products">
+
+                <!-- Products will appear here -->
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="admin.js"></script>
+
+</body>
+
+</html>
