@@ -60,33 +60,6 @@ const products = [
 
 
 // ============================================
-// LOAD PRODUCTS FROM ADMIN PAGE
-// ============================================
-
-const savedProducts =
-    JSON.parse(
-        localStorage.getItem(
-            "wishlistProducts"
-        )
-    ) || [];
-
-
-// If products exist in localStorage,
-// use those instead of the demo product.
-
-if (savedProducts.length > 0) {
-
-    products.length = 0;
-
-    savedProducts.forEach(
-        function(product) {
-
-            products.push(product);
-
-        }
-    );
-
-}// ============================================
 // LOAD PRODUCTS FROM SUPABASE
 // ============================================
 
@@ -95,7 +68,8 @@ async function loadProductsFromSupabase() {
     const {
         data,
         error
-    } = await supabaseClient
+    } 
+    = await supabaseClient
         .from("wishlist_products")
         .select("*")
         .order("created_at", {
@@ -907,9 +881,7 @@ sortSelect.addEventListener(
 // INITIAL DISPLAY
 // ============================================
 
-displayProducts(
-    products
-);
+loadProductsFromSupabase();
 
 
 // ============================================
@@ -920,7 +892,4 @@ console.log(
     "🎀 Wishlist loaded successfully!"
 );
 
-console.log(
-    "Products loaded:",
-    products
-);
+
