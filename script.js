@@ -107,10 +107,7 @@ async function loadProductsFromSupabase() {
     });
 
 
-    console.log(
-        "☁️ Products loaded from Supabase:",
-        products
-    );
+    console.log("☁️ Products loaded from Supabase:",products);
 
 
     // ----------------------------------------
@@ -891,5 +888,4 @@ loadProductsFromSupabase();
 console.log(
     "🎀 Wishlist loaded successfully!"
 );
-
 
